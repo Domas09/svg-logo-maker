@@ -37,8 +37,20 @@ inquirer
             circle.setText(text);
             circle.setShapeColor(shapeColor);
             svg = circle.render();
+        } else if(type === 'Triangle'){
+            const triangle = new Triangle;
+            triangle.setColor(textColor);
+            triangle.setText(text);
+            triangle.setShapeColor(shapeColor);
+            svg = triangle.render();
+        } else if(type === 'Square'){
+            const square = new Square;
+            square.setColor(textColor);
+            square.setText(text);
+            square.setShapeColor(shapeColor);
+            svg = square.render();
         } 
-        fs.writeFile('./examples/circle.svg', svg, (err) => 
+        fs.writeFile('./examples/shape.svg', svg, (err) => 
             err ? console.log(err) : console.log('Success!')
         )
     })
