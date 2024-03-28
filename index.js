@@ -29,5 +29,17 @@ inquirer
         }
     ])
     .then((data) =>{
-        
+        const {text, type, textColor, shapeColor} = data;
+        let svg = '';
+        if(type === 'Circle'){
+            const circle = new Circle;
+            circle.setColor(textColor);
+            circle.setText(text);
+            circle.setShapeColor(shapeColor);
+            svg = circle.render();
+        } 
+        fs.writeFile('./examples/circle.svg', svg, (err) => 
+            err ? console.log(err) : console.log('Success!')
+        )
     })
+    
